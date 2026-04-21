@@ -1,20 +1,17 @@
-ï»¿# AdaptIQ â€” Adaptive Automatic Question Generator
+# AdaptIQ — Adaptive Automatic Question Generator
 
 > IV Semester Review-2 Project | Department of AI & ML | RV College of Engineering
 
----
 
 ## Project Overview
 
-AdaptIQ is an intelligent, web-based question generation system that automatically creates quiz questions from uploaded study material (PDF or text). It uses Natural Language Processing (NLP) and Machine Learning (ML) to generate questions at different difficulty levels and adapts the quiz difficulty in real-time based on student performance â€” without requiring any paid API or internet connection.
+AdaptIQ is an intelligent, web-based question generation system that automatically creates quiz questions from uploaded study material (PDF or text). It uses Natural Language Processing (NLP) and Machine Learning (ML) to generate questions at different difficulty levels and adapts the quiz difficulty in real-time based on student performance — without requiring any paid API or internet connection.
 
----
 
 ## Problem Statement
 
 Traditional question paper preparation is manual, time-consuming, and does not consider individual student learning levels. Existing systems either require paid APIs or generate generic template-based questions. AdaptIQ solves this by generating real, knowledge-based questions locally using NLP and ML.
 
----
 
 ## Key Features
 
@@ -25,17 +22,14 @@ Traditional question paper preparation is manual, time-consuming, and does not c
 - Bloom's Taxonomy tagging (Remember L1 to Create L6)
 - Explanation shown after every answer
 - Session analytics, accuracy tracking, and history
-- 100% local â€” no paid API, no internet required during quiz
+- 100% local — no paid API, no internet required during quiz
 
----
 
 ## System Architecture
----
 
 ## Technologies Used
 
 | Layer | Technology |
-|---|---|
 | Frontend | HTML5, CSS3, Vanilla JavaScript |
 | PDF Extraction (client) | PDF.js (cdnjs) |
 | Backend Framework | Python 3, Flask, Flask-CORS |
@@ -47,7 +41,6 @@ Traditional question paper preparation is manual, time-consuming, and does not c
 | IDE | Visual Studio Code |
 | Version Control | Git, GitHub |
 
----
 
 ## NLP Question Generation Pipeline
 
@@ -65,21 +58,18 @@ Traditional question paper preparation is manual, time-consuming, and does not c
 6. Random Forest classifier assigns Easy / Medium / Hard
 7. Bloom's Taxonomy level assigned by keyword detection
 
----
 
 ## Adaptive Assessment Engine
 
 - Quiz starts at chosen difficulty (Easy / Medium / Hard / All / Adaptive)
 - In Adaptive mode:
-  - 2 correct answers in a row â†’ difficulty increases
-  - 2 wrong answers in a row â†’ difficulty decreases
+  - 2 correct answers in a row ? difficulty increases
+  - 2 wrong answers in a row ? difficulty decreases
 - Live banner notification on every difficulty change
 - Difficulty journey shown in results summary
 
----
 
 ## Project Structure
----
 
 ## Installation and Setup
 
@@ -108,7 +98,6 @@ python app.py
 `
 
 ### 5. Open in browser
----
 
 ## How to Use
 
@@ -118,16 +107,14 @@ python app.py
 4. Click **Generate Questions**
 5. Go to **Question Bank** to review generated questions
 6. Go to **Take Quiz**, select quiz difficulty, click **Start Quiz**
-7. Answer questions â€” explanation shown after each answer
+7. Answer questions — explanation shown after each answer
 8. View your performance in **Analytics**
 
----
 
 ## Screenshots
 
 > Add screenshots of your project here after uploading them to GitHub
 
----
 
 ## Future Enhancements
 
@@ -137,19 +124,10 @@ python app.py
 - Diagrammatic question support
 - Online deployment using cloud hosting
 
----
 
-## Team
 
-| Name | USN |
-|---|---|
-| Pisari Pooja | [Your USN] |
 
-**Guide:** [Guide Name]
-**Department:** Artificial Intelligence and Machine Learning
-**Institution:** RV College of Engineering, Bangalore
 
----
 
 ## License
 
