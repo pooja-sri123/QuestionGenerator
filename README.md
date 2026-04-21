@@ -1,6 +1,6 @@
 # AdaptIQ — Adaptive Automatic Question Generator
 
-> IV Semester Review-2 Project | Department of Artificial Intelligence and Machine Learning
+> IV Semester Project | Department of CSA(AI & ML) | Institute of Aeronautical Engineering
 
 ---
 
