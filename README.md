@@ -1,11 +1,11 @@
-# AdaptIQ — Adaptive Automatic Question Generator
+# AdaptIQ â€” Adaptive Automatic Question Generator
 
 > IV Semester Review-2 Project | Department of AI & ML | RV College of Engineering
 
 
 ## Project Overview
 
-AdaptIQ is an intelligent, web-based question generation system that automatically creates quiz questions from uploaded study material (PDF or text). It uses Natural Language Processing (NLP) and Machine Learning (ML) to generate questions at different difficulty levels and adapts the quiz difficulty in real-time based on student performance — without requiring any paid API or internet connection.
+AdaptIQ is an intelligent, web-based question generation system that automatically creates quiz questions from uploaded study material (PDF or text). It uses Natural Language Processing (NLP) and Machine Learning (ML) to generate questions at different difficulty levels and adapts the quiz difficulty in real-time based on student performance â€” without requiring any paid API or internet connection.
 
 
 ## Problem Statement
@@ -22,7 +22,7 @@ Traditional question paper preparation is manual, time-consuming, and does not c
 - Bloom's Taxonomy tagging (Remember L1 to Create L6)
 - Explanation shown after every answer
 - Session analytics, accuracy tracking, and history
-- 100% local — no paid API, no internet required during quiz
+- 100% local â€” no paid API, no internet required during quiz
 
 
 ## System Architecture
@@ -107,13 +107,8 @@ python app.py
 4. Click **Generate Questions**
 5. Go to **Question Bank** to review generated questions
 6. Go to **Take Quiz**, select quiz difficulty, click **Start Quiz**
-7. Answer questions — explanation shown after each answer
+7. Answer questions â€” explanation shown after each answer
 8. View your performance in **Analytics**
-
-
-## Screenshots
-
-> Add screenshots of your project here after uploading them to GitHub
 
 
 ## Future Enhancements
