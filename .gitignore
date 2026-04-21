@@ -1,0 +1,9 @@
+﻿venv/
+__pycache__/
+*.pyc
+*.pyo
+models/
+uploads/
+database.db
+.env
+*.pkl

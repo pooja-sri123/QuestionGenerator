@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 60px auto; padding: 20px; }
+    .question-box { background: #f5f5f5; padding: 20px; border-radius: 10px; margin: 20px 0; }
+    .difficulty { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; }
+    .easy { background: #d4edda; color: #155724; }
+    .medium { background: #fff3cd; color: #856404; }
+    .hard { background: #f8d7da; color: #721c24; }
+    input[type="text"] { width: 100%; padding: 10px; font-size: 16px; margin: 10px 0; }
+    button { background: #007bff; color: white; padding: 12px 30px; border: none; font-size: 16px; cursor: pointer; border-radius: 5px; }
+    button:hover { background: #0056b3; }
+    #timer { font-size: 14px; color: #666; margin: 10px 0; }
+    #progress { font-size: 14px; color: #666; }
+    #result { margin-top: 20px; padding: 20px; background: #e8f5e9; border-radius: 10px; display: none; }
+  </style>
+</head>
+<body>
+  <div id="quiz-section">
+    <div id="progress"></div>
+    <div id="timer"></div>
+    <div class="question-box">
+      <span id="difficulty-badge" class="difficulty"></span>
+      <h3 id="question-text"></h3>
+    </div>
+    <input type="text" id="answer" placeholder="Type your answer here..." />
+    <button onclick="submitAnswer()">Submit Answer</button>
+  </div>
+
+  <div id="result">
+    <h2>Quiz Complete!</h2>
+    <p id="final-score"></p>
+    <p id="next-level"></p>
+    <button onclick="window.location.href='index.html'">Start New Quiz</button>
+  </div>
+
+  <script>
+    const questions = JSON.parse(localStorage.getItem('questions') || '[]');
+    const studentName = localStorage.getItem('studentName') || 'Student';
+    let currentIndex = parseInt(localStorage.getItem('currentIndex') || 0);
+    let score = parseInt(localStorage.getItem('score') || 0);
+    let questionStartTime = Date.now();
+    let timeTaken = [];
+
+    function showQuestion() {
+      if (currentIndex >= questions.length) { showResult(); return; }
+      const q = questions[currentIndex];
+      document.getElementById('progress').innerText = `Question ${currentIndex + 1} of ${questions.length}`;
+      document.getElementById('question-text').innerText = q.question;
+      const badge = document.getElementById('difficulty-badge');
+      badge.innerText = q.difficulty.toUpperCase();
+      badge.className = 'difficulty ' + q.difficulty;
+      document.getElementById('answer').value = '';
+      questionStartTime = Date.now();
+    }
+
+    function submitAnswer() {
+      const answer = document.getElementById('answer').value.trim();
+      if (!answer) { alert('Please type an answer!'); return; }
+      const timeSec = (Date.now() - questionStartTime) / 1000;
+      timeTaken.push(timeSec);
+      score++;
+      currentIndex++;
+      localStorage.setItem('currentIndex', currentIndex);
+      localStorage.setItem('score', score);
+      showQuestion();
+    }
+
+    async function showResult() {
+      document.getElementById('quiz-section').style.display = 'none';
+      document.getElementById('result').style.display = 'block';
+      const accuracy = score / questions.length;
+      const avgTime = timeTaken.reduce((a, b) => a + b, 0) / timeTaken.length;
+      document.getElementById('final-score').innerText =
+        `${studentName} — Score: ${score}/${questions.length} | Accuracy: ${Math.round(accuracy * 100)}%`;
+      const response = await fetch('http://localhost:5000/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          student: studentName, score, accuracy,
+          avg_time: avgTime, difficulty: questions[0].difficulty
+        })
+      });
+      const data = await response.json();
+      document.getElementById('next-level').innerText =
+        `Next recommended difficulty: ${data.next_difficulty.toUpperCase()}`;
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>
