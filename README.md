@@ -1,6 +1,6 @@
 # AdaptIQ — Adaptive Automatic Question Generator
 
-> IV Semester Review-2 Project | Department of AI & ML | RV College of Engineering
+> IV Semester Project | Department of CSE(AI & ML) | Institute of Aeronautical Engineering
 
 
 ## Project Overview
